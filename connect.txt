@@ -1,0 +1,20 @@
+bluetoothctl
+
+scan on
+scan off
+connect D0:DC:74:5C:A6:46
+
+menu gatt
+
+select-attribute /org/bluez/hci0/dev_D0_DC_74_5C_A6_46/service0009/char000a
+notify on
+notify off
+
+# UUID de l'attribut CSC : 00002a5b-0000-1000-8000-00805f9b34fb
+# Son Handle : 0x0000
+
+# SI "connect refused (111) Error" mettre l'option -t random sur gatttool 
+# SI "Device or resource busy (16)" Error bien penser à kill les précédents process gatttool
+# SI "Connection timed out (110)" Error désactiver-réactiver le bluetooth
+
+"primary" pour savoir les handle
